@@ -6,12 +6,18 @@ info:
 servers:
   - url: "https://api.vtbbank.ru/getstatement/"
 paths:
-  /weather:
+  /statement/transactions:
     get:
       tags:
+        - 
       summary:
       description:
       operationId:
       externalDocs:
       parameters:
       responses:
+      deprecated:
+      security:
+      servers:
+      requestBody:
+      callbacks:
