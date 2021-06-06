@@ -6,8 +6,9 @@ info:
   version: "1.3.43"
 servers:
   - url: "https://api.vtbbank.ru/statement/"
+
 paths:
-  /transactions/{accnum}:
+  /transactions{accnum}:
     get:
       operationId: accountNumber
       tags:
@@ -20,6 +21,12 @@ paths:
           schema:
             type: string
             maxLength: 20
+        - name: statementDate
+          in: query
+          description: "statement date"
+          schema:
+            $ref: "#/components/schemas/date"
+          required: true
         - name: accnum mask
           in: query
           required: true
@@ -38,3 +45,7 @@ components:
     uuid:
       type: string
       pattern: '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
+    date:
+      type: string
+      pattern: /([0-9]{4})-(?:[0-9]{2})-([0-9]{2})/
+      example: "2006-06-06"
