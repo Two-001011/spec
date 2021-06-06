@@ -32,6 +32,7 @@ paths:
           required: true
           schema:
             type: string
+        #сюда добавить еще один параметр запроса, третий по аналогии 
       responses:
         '200':
           description: Expected response to a valid request
@@ -39,6 +40,7 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/uuid"
+          #еще добавить в ответ дату как здесь примерно
 
 components:
   schemas:
