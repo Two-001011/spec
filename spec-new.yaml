@@ -1,4 +1,5 @@
 openapi: "3.0.0"
+
 info:
   title: "SM_iDa_014"
   description: "Here is OPENAPI3 specification yaml format for SM_iDa_014 service with field confines, data masks  and possible length"
@@ -6,7 +7,7 @@ info:
 servers:
   - url: "https://api.vtbbank.ru/statement/"
 paths:
-  /transactions/{accnum}
+  /transactions/{accnum}:
     get:
       operationId: accountNumber
       tags:
@@ -24,4 +25,16 @@ paths:
           required: true
           schema:
             type: string
-            
+      responses:
+        '200':
+          description: Expected response to a valid request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/uuid"
+
+components:
+  schemas:
+    uuid:
+      type: string
+      pattern: '^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$'
