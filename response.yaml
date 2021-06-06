@@ -4,22 +4,22 @@ info:
   description: "Here is OPENAPI3 specification yaml format for SM_iDa_014 service with field confines, data masks  and possible length"
   version: "1.3.43"
 servers:
-  - url: "https://api.vtbbank.ru/statement/transactions/"
+  - url: "https://api.vtbbank.ru/statement/"
 paths:
-  /accnum/{id}:
+  /transactions:
     get:
-      tags:
-        - accnum
-      summary: "the first necessary field contains account number"
-      operationId: accountNumber
-      parameters:
-        - in: path
-          name: accnum
-          required: true
-        - in: query
-          name: limit
-          schema:
-            type: integer
-            format: int32
-          required: true
+      summary: "list of data as response"
       responses:
+        '200':
+          description: "correspondingAccount"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/corracc"
+                properties:        
+
+components:
+  schemas:
+    corracc:
+      type: string
+      maxLength: 20
