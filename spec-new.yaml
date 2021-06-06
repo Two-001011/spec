@@ -6,17 +6,22 @@ info:
 servers:
   - url: "https://api.vtbbank.ru/statement/"
 paths:
-  /transactions
+  /transactions/{accnum}
     get:
-      operationId: transactions
+      operationId: accountNumber
       tags:
-      - transactions
-      description: "the data of statement operations"
-      requestbody:
-        description: accountNumber
-        required: true
-        content:
-          application/json:
-            schema:
-              type: string
-              maxLength: 20
+        - accnum
+      description: "acccount number"
+      parameters:
+        - name: accnum
+          in: path
+          required: true
+          schema:
+            type: string
+            maxLength: 20
+        - name: accnum mask
+          in: query
+          required: true
+          schema:
+            type: string
+            
