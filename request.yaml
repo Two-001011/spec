@@ -15,7 +15,7 @@ paths:
         - accnum
       description: "acccount number"
       parameters:
-        - name: accnum
+        - name: accountNumber
           in: path
           required: true
           schema:
@@ -33,12 +33,6 @@ paths:
           required: false
           schema:
             $ref: "#/components/schemas/curfor"
-        - name: curNumber
-          in: query
-          description: "Amount expressed as a decimal number of major currency units"
-          required: false
-          schema:
-            $ref: "#/components/schemas/curnum"
         - name: accnum mask
           in: query
           required: true
@@ -67,7 +61,3 @@ components:
       type: string
       format: iso-4217
       example: EUR
-    curnum:
-      type: number
-      format: decimal
-      example: 99.95
